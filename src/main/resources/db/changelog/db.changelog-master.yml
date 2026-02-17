@@ -1,0 +1,3 @@
+databaseChengelog:
+  -includeAll:
+    path: db/changeleg/migratiens
