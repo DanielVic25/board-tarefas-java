@@ -1,32 +1,33 @@
-fev. 18, 2026 10:29:19 PM liquibase.database
+fev. 18, 2026 10:45:44 PM liquibase.database
 INFORMAÇÕES: Set default schema name to public
-fev. 18, 2026 10:29:19 PM liquibase.changelog
+fev. 18, 2026 10:45:45 PM liquibase.changelog
 INFORMAÇÕES: Reading resource: db/changelog/migratiens/db.changelog-202602170152.sql
-fev. 18, 2026 10:29:20 PM liquibase.changelog
+fev. 18, 2026 10:45:45 PM liquibase.changelog
 INFORMAÇÕES: Reading from public.databasechangelog
-fev. 18, 2026 10:29:20 PM liquibase.changelog
+fev. 18, 2026 10:45:45 PM liquibase.changelog
+INFORMAÇÕES: Reading resource: db/changelog/migratiens/db.changelog-202602180013.sql
+fev. 18, 2026 10:45:45 PM liquibase.changelog
 INFORMAÇÕES: Reading resource: db/changelog/migratiens/db.changelog-202602180014.sql
-fev. 18, 2026 10:29:20 PM liquibase.changelog
+fev. 18, 2026 10:45:45 PM liquibase.changelog
 INFORMAÇÕES: Reading resource: db/changelog/migratiens/db.changelog-202602180015.sql
-fev. 18, 2026 10:29:20 PM liquibase.changelog
-INFORMAÇÕES: Reading resource: db/changelog/migratiens/db.changelog-202602182154.sql
-fev. 18, 2026 10:29:20 PM liquibase.lockservice
+fev. 18, 2026 10:45:46 PM liquibase.lockservice
 INFORMAÇÕES: Successfully acquired change log lock
-fev. 18, 2026 10:29:20 PM liquibase.command
-INFORMAÇÕES: Using deploymentId: 1464558279
-fev. 18, 2026 10:29:20 PM liquibase.changelog
+fev. 18, 2026 10:45:46 PM liquibase.command
+INFORMAÇÕES: Using deploymentId: 1465543723
+fev. 18, 2026 10:45:46 PM liquibase.changelog
 INFORMAÇÕES: Reading from public.databasechangelog
-Running Changeset: db/changelog/migratiens/db.changelog-202602180014.sql::202602170152::daniel
-fev. 18, 2026 10:29:20 PM liquibase.changelog
-GRAVE: ChangeSet db/changelog/migratiens/db.changelog-202602180014.sql::202602170152::daniel encountered an exception.
-liquibase.exception.DatabaseException: ERRO: erro de sintaxe em ou próximo a "`"
-  Posição: 127 [Failed SQL: (0) CREATE TABLE CARDS(
+Running Changeset: db/changelog/migratiens/db.changelog-202602180013.sql::202602172154::daniel
+fev. 18, 2026 10:45:46 PM liquibase.changelog
+GRAVE: ChangeSet db/changelog/migratiens/db.changelog-202602180013.sql::202602172154::daniel encountered an exception.
+liquibase.exception.DatabaseException: ERRO: erro de sintaxe em ou próximo a ","
+  Posição: 275 [Failed SQL: (0) CREATE TABLE BOARDS_COLUMNS(
     id BIGSERIAL PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    description VARCHAR(255) NOT NULL,
-    `order` int NOT NULL,
-    boards_column_id BIGINT NOT NULL,
-    CONSTRAINT boards_column_cards_fk FOREIGN KEY (boards_column_id) REFERENCES BOARDS_COLUMNS(id) ON DELETE
+    name VARCHAR(255) NOT NULL,
+    "order" int NOT NULL,
+    kind VARCHAR(7) NOT NULL,
+    boards_id BIGINT NOT NULL,
+    CONSTRAINT boards__boards_columns_fk FOREIGN KEY (boards_id) REFERENCES BOARDS(id) ON DELETE,
+    CONSTRAINT id_order_uk UNIQUE KEY unique_board_id_order (boards_id, "order")
 )]
 	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:520)
 	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:85)
@@ -72,8 +73,8 @@ liquibase.exception.DatabaseException: ERRO: erro de sintaxe em ou próximo a "`
 	at liquibase.Liquibase.update(Liquibase.java:155)
 	at br.com.dio.persistence.migration.MigrationStrategy.executeMigration(MigrationStrategy.java:39)
 	at br.com.dio.Main.main(Main.java:13)
-Caused by: org.postgresql.util.PSQLException: ERRO: erro de sintaxe em ou próximo a "`"
-  Posição: 127
+Caused by: org.postgresql.util.PSQLException: ERRO: erro de sintaxe em ou próximo a ","
+  Posição: 275
 	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2846)
 	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2531)
 	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)
@@ -94,42 +95,43 @@ Filtered out:                 0
 -------------------------------
 Total change sets:            4
 
-fev. 18, 2026 10:29:20 PM liquibase.util
+fev. 18, 2026 10:45:46 PM liquibase.util
 INFORMAÇÕES: UPDATE SUMMARY
-fev. 18, 2026 10:29:20 PM liquibase.util
+fev. 18, 2026 10:45:46 PM liquibase.util
 INFORMAÇÕES: Run:                          0
-fev. 18, 2026 10:29:20 PM liquibase.util
+fev. 18, 2026 10:45:46 PM liquibase.util
 INFORMAÇÕES: Previously run:               1
-fev. 18, 2026 10:29:20 PM liquibase.util
+fev. 18, 2026 10:45:46 PM liquibase.util
 INFORMAÇÕES: Filtered out:                 0
-fev. 18, 2026 10:29:20 PM liquibase.util
+fev. 18, 2026 10:45:46 PM liquibase.util
 INFORMAÇÕES: -------------------------------
-fev. 18, 2026 10:29:20 PM liquibase.util
+fev. 18, 2026 10:45:46 PM liquibase.util
 INFORMAÇÕES: Total change sets:            4
-fev. 18, 2026 10:29:20 PM liquibase.util
+fev. 18, 2026 10:45:46 PM liquibase.util
 INFORMAÇÕES: Update summary generated
-fev. 18, 2026 10:29:20 PM liquibase.command
+fev. 18, 2026 10:45:46 PM liquibase.command
 INFORMAÇÕES: Update command encountered an exception.
-fev. 18, 2026 10:29:20 PM liquibase.lockservice
+fev. 18, 2026 10:45:46 PM liquibase.lockservice
 INFORMAÇÕES: Successfully released change log lock
-fev. 18, 2026 10:29:20 PM liquibase.command
+fev. 18, 2026 10:45:46 PM liquibase.command
 INFORMAÇÕES: Logging exception.
 ERROR: Exception Details
 ERROR: Exception Primary Class:  PSQLException
-ERROR: Exception Primary Reason:  ERRO: erro de sintaxe em ou próximo a "`"
-  Posição: 127
+ERROR: Exception Primary Reason:  ERRO: erro de sintaxe em ou próximo a ","
+  Posição: 275
 ERROR: Exception Primary Source:  PostgreSQL 16.11
-fev. 18, 2026 10:29:20 PM liquibase.command
+fev. 18, 2026 10:45:46 PM liquibase.command
 INFORMAÇÕES: Command execution complete
-liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/migratiens/db.changelog-202602180014.sql::202602170152::daniel:
-     Reason: liquibase.exception.DatabaseException: ERRO: erro de sintaxe em ou próximo a "`"
-  Posição: 127 [Failed SQL: (0) CREATE TABLE CARDS(
+liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/migratiens/db.changelog-202602180013.sql::202602172154::daniel:
+     Reason: liquibase.exception.DatabaseException: ERRO: erro de sintaxe em ou próximo a ","
+  Posição: 275 [Failed SQL: (0) CREATE TABLE BOARDS_COLUMNS(
     id BIGSERIAL PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    description VARCHAR(255) NOT NULL,
-    `order` int NOT NULL,
-    boards_column_id BIGINT NOT NULL,
-    CONSTRAINT boards_column_cards_fk FOREIGN KEY (boards_column_id) REFERENCES BOARDS_COLUMNS(id) ON DELETE
+    name VARCHAR(255) NOT NULL,
+    "order" int NOT NULL,
+    kind VARCHAR(7) NOT NULL,
+    boards_id BIGINT NOT NULL,
+    CONSTRAINT boards__boards_columns_fk FOREIGN KEY (boards_id) REFERENCES BOARDS(id) ON DELETE,
+    CONSTRAINT id_order_uk UNIQUE KEY unique_board_id_order (boards_id, "order")
 )]
 	at liquibase.command.CommandScope.lambda$execute$6(CommandScope.java:310)
 	at liquibase.Scope.child(Scope.java:223)
@@ -147,15 +149,16 @@ liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseExce
 	at liquibase.Liquibase.update(Liquibase.java:155)
 	at br.com.dio.persistence.migration.MigrationStrategy.executeMigration(MigrationStrategy.java:39)
 	at br.com.dio.Main.main(Main.java:13)
-Caused by: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/migratiens/db.changelog-202602180014.sql::202602170152::daniel:
-     Reason: liquibase.exception.DatabaseException: ERRO: erro de sintaxe em ou próximo a "`"
-  Posição: 127 [Failed SQL: (0) CREATE TABLE CARDS(
+Caused by: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/migratiens/db.changelog-202602180013.sql::202602172154::daniel:
+     Reason: liquibase.exception.DatabaseException: ERRO: erro de sintaxe em ou próximo a ","
+  Posição: 275 [Failed SQL: (0) CREATE TABLE BOARDS_COLUMNS(
     id BIGSERIAL PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    description VARCHAR(255) NOT NULL,
-    `order` int NOT NULL,
-    boards_column_id BIGINT NOT NULL,
-    CONSTRAINT boards_column_cards_fk FOREIGN KEY (boards_column_id) REFERENCES BOARDS_COLUMNS(id) ON DELETE
+    name VARCHAR(255) NOT NULL,
+    "order" int NOT NULL,
+    kind VARCHAR(7) NOT NULL,
+    boards_id BIGINT NOT NULL,
+    CONSTRAINT boards__boards_columns_fk FOREIGN KEY (boards_id) REFERENCES BOARDS(id) ON DELETE,
+    CONSTRAINT id_order_uk UNIQUE KEY unique_board_id_order (boards_id, "order")
 )]
 	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:155)
 	at liquibase.command.core.AbstractUpdateCommandStep.lambda$run$1(AbstractUpdateCommandStep.java:117)
@@ -167,15 +170,16 @@ Caused by: liquibase.exception.LiquibaseException: liquibase.exception.Migration
 	at liquibase.command.core.UpdateCommandStep.run(UpdateCommandStep.java:100)
 	at liquibase.command.CommandScope.lambda$execute$6(CommandScope.java:263)
 	... 15 more
-Caused by: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/migratiens/db.changelog-202602180014.sql::202602170152::daniel:
-     Reason: liquibase.exception.DatabaseException: ERRO: erro de sintaxe em ou próximo a "`"
-  Posição: 127 [Failed SQL: (0) CREATE TABLE CARDS(
+Caused by: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/migratiens/db.changelog-202602180013.sql::202602172154::daniel:
+     Reason: liquibase.exception.DatabaseException: ERRO: erro de sintaxe em ou próximo a ","
+  Posição: 275 [Failed SQL: (0) CREATE TABLE BOARDS_COLUMNS(
     id BIGSERIAL PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    description VARCHAR(255) NOT NULL,
-    `order` int NOT NULL,
-    boards_column_id BIGINT NOT NULL,
-    CONSTRAINT boards_column_cards_fk FOREIGN KEY (boards_column_id) REFERENCES BOARDS_COLUMNS(id) ON DELETE
+    name VARCHAR(255) NOT NULL,
+    "order" int NOT NULL,
+    kind VARCHAR(7) NOT NULL,
+    boards_id BIGINT NOT NULL,
+    CONSTRAINT boards__boards_columns_fk FOREIGN KEY (boards_id) REFERENCES BOARDS(id) ON DELETE,
+    CONSTRAINT id_order_uk UNIQUE KEY unique_board_id_order (boards_id, "order")
 )]
 	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:918)
 	at liquibase.changelog.visitor.UpdateVisitor.executeAcceptedChange(UpdateVisitor.java:127)
@@ -194,14 +198,15 @@ Caused by: liquibase.exception.MigrationFailedException: Migration failed for ch
 	at liquibase.Scope.child(Scope.java:284)
 	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:91)
 	... 23 more
-Caused by: liquibase.exception.DatabaseException: ERRO: erro de sintaxe em ou próximo a "`"
-  Posição: 127 [Failed SQL: (0) CREATE TABLE CARDS(
+Caused by: liquibase.exception.DatabaseException: ERRO: erro de sintaxe em ou próximo a ","
+  Posição: 275 [Failed SQL: (0) CREATE TABLE BOARDS_COLUMNS(
     id BIGSERIAL PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    description VARCHAR(255) NOT NULL,
-    `order` int NOT NULL,
-    boards_column_id BIGINT NOT NULL,
-    CONSTRAINT boards_column_cards_fk FOREIGN KEY (boards_column_id) REFERENCES BOARDS_COLUMNS(id) ON DELETE
+    name VARCHAR(255) NOT NULL,
+    "order" int NOT NULL,
+    kind VARCHAR(7) NOT NULL,
+    boards_id BIGINT NOT NULL,
+    CONSTRAINT boards__boards_columns_fk FOREIGN KEY (boards_id) REFERENCES BOARDS(id) ON DELETE,
+    CONSTRAINT id_order_uk UNIQUE KEY unique_board_id_order (boards_id, "order")
 )]
 	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:520)
 	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:85)
@@ -210,8 +215,8 @@ Caused by: liquibase.exception.DatabaseException: ERRO: erro de sintaxe em ou pr
 	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1198)
 	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:860)
 	... 38 more
-Caused by: org.postgresql.util.PSQLException: ERRO: erro de sintaxe em ou próximo a "`"
-  Posição: 127
+Caused by: org.postgresql.util.PSQLException: ERRO: erro de sintaxe em ou próximo a ","
+  Posição: 275
 	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2846)
 	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2531)
 	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)
