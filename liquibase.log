@@ -1,50 +1,225 @@
-fev. 17, 2026 2:19:47 AM liquibase.database
+fev. 18, 2026 10:29:19 PM liquibase.database
 INFORMAÇÕES: Set default schema name to public
-fev. 17, 2026 2:19:47 AM liquibase.changelog
+fev. 18, 2026 10:29:19 PM liquibase.changelog
 INFORMAÇÕES: Reading resource: db/changelog/migratiens/db.changelog-202602170152.sql
-fev. 17, 2026 2:19:48 AM liquibase.changelog
-INFORMAÇÕES: Creating database changelog table with name: public.databasechangelog
-fev. 17, 2026 2:19:48 AM liquibase.changelog
+fev. 18, 2026 10:29:20 PM liquibase.changelog
 INFORMAÇÕES: Reading from public.databasechangelog
-fev. 17, 2026 2:19:48 AM liquibase.snapshot
-INFORMAÇÕES: Creating snapshot
-fev. 17, 2026 2:19:48 AM liquibase.lockservice
+fev. 18, 2026 10:29:20 PM liquibase.changelog
+INFORMAÇÕES: Reading resource: db/changelog/migratiens/db.changelog-202602180014.sql
+fev. 18, 2026 10:29:20 PM liquibase.changelog
+INFORMAÇÕES: Reading resource: db/changelog/migratiens/db.changelog-202602180015.sql
+fev. 18, 2026 10:29:20 PM liquibase.changelog
+INFORMAÇÕES: Reading resource: db/changelog/migratiens/db.changelog-202602182154.sql
+fev. 18, 2026 10:29:20 PM liquibase.lockservice
 INFORMAÇÕES: Successfully acquired change log lock
-fev. 17, 2026 2:19:48 AM liquibase.command
-INFORMAÇÕES: Using deploymentId: 1305586552
-fev. 17, 2026 2:19:48 AM liquibase.changelog
+fev. 18, 2026 10:29:20 PM liquibase.command
+INFORMAÇÕES: Using deploymentId: 1464558279
+fev. 18, 2026 10:29:20 PM liquibase.changelog
 INFORMAÇÕES: Reading from public.databasechangelog
-Running Changeset: db/changelog/migratiens/db.changelog-202602170152.sql::202602170152::daniel
-fev. 17, 2026 2:19:49 AM liquibase.changelog
-INFORMAÇÕES: Custom SQL executed
-fev. 17, 2026 2:19:49 AM liquibase.changelog
-INFORMAÇÕES: ChangeSet db/changelog/migratiens/db.changelog-202602170152.sql::202602170152::daniel ran successfully in 160ms
+Running Changeset: db/changelog/migratiens/db.changelog-202602180014.sql::202602170152::daniel
+fev. 18, 2026 10:29:20 PM liquibase.changelog
+GRAVE: ChangeSet db/changelog/migratiens/db.changelog-202602180014.sql::202602170152::daniel encountered an exception.
+liquibase.exception.DatabaseException: ERRO: erro de sintaxe em ou próximo a "`"
+  Posição: 127 [Failed SQL: (0) CREATE TABLE CARDS(
+    id BIGSERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description VARCHAR(255) NOT NULL,
+    `order` int NOT NULL,
+    boards_column_id BIGINT NOT NULL,
+    CONSTRAINT boards_column_cards_fk FOREIGN KEY (boards_column_id) REFERENCES BOARDS_COLUMNS(id) ON DELETE
+)]
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:520)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:85)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:188)
+	at liquibase.executor.AbstractExecutor.execute(AbstractExecutor.java:148)
+	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1198)
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:860)
+	at liquibase.changelog.visitor.UpdateVisitor.executeAcceptedChange(UpdateVisitor.java:127)
+	at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:71)
+	at liquibase.changelog.ChangeLogIterator.lambda$run$0(ChangeLogIterator.java:133)
+	at liquibase.Scope.lambda$child$0(Scope.java:214)
+	at liquibase.Scope.child(Scope.java:223)
+	at liquibase.Scope.child(Scope.java:213)
+	at liquibase.Scope.child(Scope.java:192)
+	at liquibase.changelog.ChangeLogIterator.lambda$run$1(ChangeLogIterator.java:122)
+	at liquibase.Scope.lambda$child$0(Scope.java:214)
+	at liquibase.Scope.child(Scope.java:223)
+	at liquibase.Scope.child(Scope.java:213)
+	at liquibase.Scope.child(Scope.java:192)
+	at liquibase.Scope.child(Scope.java:280)
+	at liquibase.Scope.child(Scope.java:284)
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:91)
+	at liquibase.command.core.AbstractUpdateCommandStep.lambda$run$1(AbstractUpdateCommandStep.java:117)
+	at liquibase.Scope.lambda$child$0(Scope.java:214)
+	at liquibase.Scope.child(Scope.java:223)
+	at liquibase.Scope.child(Scope.java:213)
+	at liquibase.Scope.child(Scope.java:192)
+	at liquibase.command.core.AbstractUpdateCommandStep.run(AbstractUpdateCommandStep.java:115)
+	at liquibase.command.core.UpdateCommandStep.run(UpdateCommandStep.java:100)
+	at liquibase.command.CommandScope.lambda$execute$6(CommandScope.java:263)
+	at liquibase.Scope.child(Scope.java:223)
+	at liquibase.Scope.child(Scope.java:199)
+	at liquibase.command.CommandScope.execute(CommandScope.java:251)
+	at liquibase.Liquibase.lambda$update$0(Liquibase.java:216)
+	at liquibase.Scope.lambda$child$0(Scope.java:214)
+	at liquibase.Scope.child(Scope.java:223)
+	at liquibase.Scope.child(Scope.java:213)
+	at liquibase.Scope.child(Scope.java:192)
+	at liquibase.Liquibase.runInScope(Liquibase.java:1366)
+	at liquibase.Liquibase.update(Liquibase.java:205)
+	at liquibase.Liquibase.update(Liquibase.java:188)
+	at liquibase.Liquibase.update(Liquibase.java:175)
+	at liquibase.Liquibase.update(Liquibase.java:155)
+	at br.com.dio.persistence.migration.MigrationStrategy.executeMigration(MigrationStrategy.java:39)
+	at br.com.dio.Main.main(Main.java:13)
+Caused by: org.postgresql.util.PSQLException: ERRO: erro de sintaxe em ou próximo a "`"
+  Posição: 127
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2846)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2531)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:358)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:343)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:319)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:314)
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:512)
+	... 43 more
+
 
 UPDATE SUMMARY
-Run:                          1
-Previously run:               0
+Run:                          0
+Previously run:               1
 Filtered out:                 0
 -------------------------------
-Total change sets:            1
+Total change sets:            4
 
-fev. 17, 2026 2:19:49 AM liquibase.util
+fev. 18, 2026 10:29:20 PM liquibase.util
 INFORMAÇÕES: UPDATE SUMMARY
-fev. 17, 2026 2:19:49 AM liquibase.util
-INFORMAÇÕES: Run:                          1
-fev. 17, 2026 2:19:49 AM liquibase.util
-INFORMAÇÕES: Previously run:               0
-fev. 17, 2026 2:19:49 AM liquibase.util
+fev. 18, 2026 10:29:20 PM liquibase.util
+INFORMAÇÕES: Run:                          0
+fev. 18, 2026 10:29:20 PM liquibase.util
+INFORMAÇÕES: Previously run:               1
+fev. 18, 2026 10:29:20 PM liquibase.util
 INFORMAÇÕES: Filtered out:                 0
-fev. 17, 2026 2:19:49 AM liquibase.util
+fev. 18, 2026 10:29:20 PM liquibase.util
 INFORMAÇÕES: -------------------------------
-fev. 17, 2026 2:19:49 AM liquibase.util
-INFORMAÇÕES: Total change sets:            1
-fev. 17, 2026 2:19:49 AM liquibase.util
+fev. 18, 2026 10:29:20 PM liquibase.util
+INFORMAÇÕES: Total change sets:            4
+fev. 18, 2026 10:29:20 PM liquibase.util
 INFORMAÇÕES: Update summary generated
-fev. 17, 2026 2:19:49 AM liquibase.command
-INFORMAÇÕES: Update command completed successfully.
-Liquibase: Update has been successful. Rows affected: 0
-fev. 17, 2026 2:19:49 AM liquibase.lockservice
+fev. 18, 2026 10:29:20 PM liquibase.command
+INFORMAÇÕES: Update command encountered an exception.
+fev. 18, 2026 10:29:20 PM liquibase.lockservice
 INFORMAÇÕES: Successfully released change log lock
-fev. 17, 2026 2:19:49 AM liquibase.command
+fev. 18, 2026 10:29:20 PM liquibase.command
+INFORMAÇÕES: Logging exception.
+ERROR: Exception Details
+ERROR: Exception Primary Class:  PSQLException
+ERROR: Exception Primary Reason:  ERRO: erro de sintaxe em ou próximo a "`"
+  Posição: 127
+ERROR: Exception Primary Source:  PostgreSQL 16.11
+fev. 18, 2026 10:29:20 PM liquibase.command
 INFORMAÇÕES: Command execution complete
+liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/migratiens/db.changelog-202602180014.sql::202602170152::daniel:
+     Reason: liquibase.exception.DatabaseException: ERRO: erro de sintaxe em ou próximo a "`"
+  Posição: 127 [Failed SQL: (0) CREATE TABLE CARDS(
+    id BIGSERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description VARCHAR(255) NOT NULL,
+    `order` int NOT NULL,
+    boards_column_id BIGINT NOT NULL,
+    CONSTRAINT boards_column_cards_fk FOREIGN KEY (boards_column_id) REFERENCES BOARDS_COLUMNS(id) ON DELETE
+)]
+	at liquibase.command.CommandScope.lambda$execute$6(CommandScope.java:310)
+	at liquibase.Scope.child(Scope.java:223)
+	at liquibase.Scope.child(Scope.java:199)
+	at liquibase.command.CommandScope.execute(CommandScope.java:251)
+	at liquibase.Liquibase.lambda$update$0(Liquibase.java:216)
+	at liquibase.Scope.lambda$child$0(Scope.java:214)
+	at liquibase.Scope.child(Scope.java:223)
+	at liquibase.Scope.child(Scope.java:213)
+	at liquibase.Scope.child(Scope.java:192)
+	at liquibase.Liquibase.runInScope(Liquibase.java:1366)
+	at liquibase.Liquibase.update(Liquibase.java:205)
+	at liquibase.Liquibase.update(Liquibase.java:188)
+	at liquibase.Liquibase.update(Liquibase.java:175)
+	at liquibase.Liquibase.update(Liquibase.java:155)
+	at br.com.dio.persistence.migration.MigrationStrategy.executeMigration(MigrationStrategy.java:39)
+	at br.com.dio.Main.main(Main.java:13)
+Caused by: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/migratiens/db.changelog-202602180014.sql::202602170152::daniel:
+     Reason: liquibase.exception.DatabaseException: ERRO: erro de sintaxe em ou próximo a "`"
+  Posição: 127 [Failed SQL: (0) CREATE TABLE CARDS(
+    id BIGSERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description VARCHAR(255) NOT NULL,
+    `order` int NOT NULL,
+    boards_column_id BIGINT NOT NULL,
+    CONSTRAINT boards_column_cards_fk FOREIGN KEY (boards_column_id) REFERENCES BOARDS_COLUMNS(id) ON DELETE
+)]
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:155)
+	at liquibase.command.core.AbstractUpdateCommandStep.lambda$run$1(AbstractUpdateCommandStep.java:117)
+	at liquibase.Scope.lambda$child$0(Scope.java:214)
+	at liquibase.Scope.child(Scope.java:223)
+	at liquibase.Scope.child(Scope.java:213)
+	at liquibase.Scope.child(Scope.java:192)
+	at liquibase.command.core.AbstractUpdateCommandStep.run(AbstractUpdateCommandStep.java:115)
+	at liquibase.command.core.UpdateCommandStep.run(UpdateCommandStep.java:100)
+	at liquibase.command.CommandScope.lambda$execute$6(CommandScope.java:263)
+	... 15 more
+Caused by: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/migratiens/db.changelog-202602180014.sql::202602170152::daniel:
+     Reason: liquibase.exception.DatabaseException: ERRO: erro de sintaxe em ou próximo a "`"
+  Posição: 127 [Failed SQL: (0) CREATE TABLE CARDS(
+    id BIGSERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description VARCHAR(255) NOT NULL,
+    `order` int NOT NULL,
+    boards_column_id BIGINT NOT NULL,
+    CONSTRAINT boards_column_cards_fk FOREIGN KEY (boards_column_id) REFERENCES BOARDS_COLUMNS(id) ON DELETE
+)]
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:918)
+	at liquibase.changelog.visitor.UpdateVisitor.executeAcceptedChange(UpdateVisitor.java:127)
+	at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:71)
+	at liquibase.changelog.ChangeLogIterator.lambda$run$0(ChangeLogIterator.java:133)
+	at liquibase.Scope.lambda$child$0(Scope.java:214)
+	at liquibase.Scope.child(Scope.java:223)
+	at liquibase.Scope.child(Scope.java:213)
+	at liquibase.Scope.child(Scope.java:192)
+	at liquibase.changelog.ChangeLogIterator.lambda$run$1(ChangeLogIterator.java:122)
+	at liquibase.Scope.lambda$child$0(Scope.java:214)
+	at liquibase.Scope.child(Scope.java:223)
+	at liquibase.Scope.child(Scope.java:213)
+	at liquibase.Scope.child(Scope.java:192)
+	at liquibase.Scope.child(Scope.java:280)
+	at liquibase.Scope.child(Scope.java:284)
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:91)
+	... 23 more
+Caused by: liquibase.exception.DatabaseException: ERRO: erro de sintaxe em ou próximo a "`"
+  Posição: 127 [Failed SQL: (0) CREATE TABLE CARDS(
+    id BIGSERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description VARCHAR(255) NOT NULL,
+    `order` int NOT NULL,
+    boards_column_id BIGINT NOT NULL,
+    CONSTRAINT boards_column_cards_fk FOREIGN KEY (boards_column_id) REFERENCES BOARDS_COLUMNS(id) ON DELETE
+)]
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:520)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:85)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:188)
+	at liquibase.executor.AbstractExecutor.execute(AbstractExecutor.java:148)
+	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1198)
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:860)
+	... 38 more
+Caused by: org.postgresql.util.PSQLException: ERRO: erro de sintaxe em ou próximo a "`"
+  Posição: 127
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2846)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2531)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:358)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:343)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:319)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:314)
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:512)
+	... 43 more
