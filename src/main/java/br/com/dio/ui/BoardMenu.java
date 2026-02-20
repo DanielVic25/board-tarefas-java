@@ -40,6 +40,7 @@ public class BoardMenu {
                         System.out.println("Saindo do board...");
                         return;
                     }
+                    case 7 -> updateCardTitle(); // NOVA CHAMADA
                     default -> System.out.println("Opção Invalida, informe uma das Opções acima!!");
                 }
             } catch (SQLException e) {
@@ -123,6 +124,18 @@ public class BoardMenu {
         try (var connection = getConnection()) {
             new CardService(connection).moveToColumn(cancelColumn.getId(), cardId);
             System.out.println("Card movido para cancelamento.");
+        }
+    }
+    private void updateCardTitle() throws SQLException {
+        System.out.println("Informe o ID do card:");
+        var cardId = scanner.nextLong();
+        scanner.nextLine(); // Consumir quebra de linha
+        System.out.println("Informe o novo título:");
+        var newTitle = scanner.nextLine();
+
+        try (var connection = getConnection()) {
+            new CardService(connection).updateTitle(cardId, newTitle);
+            System.out.println("Título do card atualizado com sucesso!");
         }
     }
 }
