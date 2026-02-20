@@ -8,8 +8,8 @@ CREATE TABLE BOARDS_COLUMNS(
     "order" int NOT NULL,
     kind VARCHAR(7) NOT NULL,
     boards_id BIGINT NOT NULL,
-    CONSTRAINT boards__boards_columns_fk FOREIGN KEY (boards_id) REFERENCES BOARDS(id) ON DELETE,
-    CONSTRAINT id_order_uk UNIQUE KEY unique_board_id_order (boards_id, "order")
+    CONSTRAINT boards__boards_columns_fk FOREIGN KEY (boards_id) REFERENCES BOARDS(id) ON DELETE CASCADE,
+    CONSTRAINT id_order_uk UNIQUE (boards_id, "order")
 );
 
 --rollback DROP TABLE BOARDS_COLUMNS

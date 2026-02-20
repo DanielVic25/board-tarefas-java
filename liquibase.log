@@ -1,230 +1,39 @@
-fev. 18, 2026 10:45:44 PM liquibase.database
+fev. 20, 2026 12:42:19 AM liquibase.database
 INFORMAÇÕES: Set default schema name to public
-fev. 18, 2026 10:45:45 PM liquibase.changelog
+fev. 20, 2026 12:42:20 AM liquibase.changelog
 INFORMAÇÕES: Reading resource: db/changelog/migratiens/db.changelog-202602170152.sql
-fev. 18, 2026 10:45:45 PM liquibase.changelog
+fev. 20, 2026 12:42:20 AM liquibase.changelog
 INFORMAÇÕES: Reading from public.databasechangelog
-fev. 18, 2026 10:45:45 PM liquibase.changelog
+fev. 20, 2026 12:42:20 AM liquibase.changelog
 INFORMAÇÕES: Reading resource: db/changelog/migratiens/db.changelog-202602180013.sql
-fev. 18, 2026 10:45:45 PM liquibase.changelog
+fev. 20, 2026 12:42:20 AM liquibase.changelog
 INFORMAÇÕES: Reading resource: db/changelog/migratiens/db.changelog-202602180014.sql
-fev. 18, 2026 10:45:45 PM liquibase.changelog
+fev. 20, 2026 12:42:20 AM liquibase.changelog
 INFORMAÇÕES: Reading resource: db/changelog/migratiens/db.changelog-202602180015.sql
-fev. 18, 2026 10:45:46 PM liquibase.lockservice
-INFORMAÇÕES: Successfully acquired change log lock
-fev. 18, 2026 10:45:46 PM liquibase.command
-INFORMAÇÕES: Using deploymentId: 1465543723
-fev. 18, 2026 10:45:46 PM liquibase.changelog
+Database is up to date, no changesets to execute
+fev. 20, 2026 12:42:20 AM liquibase.changelog
 INFORMAÇÕES: Reading from public.databasechangelog
-Running Changeset: db/changelog/migratiens/db.changelog-202602180013.sql::202602172154::daniel
-fev. 18, 2026 10:45:46 PM liquibase.changelog
-GRAVE: ChangeSet db/changelog/migratiens/db.changelog-202602180013.sql::202602172154::daniel encountered an exception.
-liquibase.exception.DatabaseException: ERRO: erro de sintaxe em ou próximo a ","
-  Posição: 275 [Failed SQL: (0) CREATE TABLE BOARDS_COLUMNS(
-    id BIGSERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    "order" int NOT NULL,
-    kind VARCHAR(7) NOT NULL,
-    boards_id BIGINT NOT NULL,
-    CONSTRAINT boards__boards_columns_fk FOREIGN KEY (boards_id) REFERENCES BOARDS(id) ON DELETE,
-    CONSTRAINT id_order_uk UNIQUE KEY unique_board_id_order (boards_id, "order")
-)]
-	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:520)
-	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:85)
-	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:188)
-	at liquibase.executor.AbstractExecutor.execute(AbstractExecutor.java:148)
-	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1198)
-	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:860)
-	at liquibase.changelog.visitor.UpdateVisitor.executeAcceptedChange(UpdateVisitor.java:127)
-	at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:71)
-	at liquibase.changelog.ChangeLogIterator.lambda$run$0(ChangeLogIterator.java:133)
-	at liquibase.Scope.lambda$child$0(Scope.java:214)
-	at liquibase.Scope.child(Scope.java:223)
-	at liquibase.Scope.child(Scope.java:213)
-	at liquibase.Scope.child(Scope.java:192)
-	at liquibase.changelog.ChangeLogIterator.lambda$run$1(ChangeLogIterator.java:122)
-	at liquibase.Scope.lambda$child$0(Scope.java:214)
-	at liquibase.Scope.child(Scope.java:223)
-	at liquibase.Scope.child(Scope.java:213)
-	at liquibase.Scope.child(Scope.java:192)
-	at liquibase.Scope.child(Scope.java:280)
-	at liquibase.Scope.child(Scope.java:284)
-	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:91)
-	at liquibase.command.core.AbstractUpdateCommandStep.lambda$run$1(AbstractUpdateCommandStep.java:117)
-	at liquibase.Scope.lambda$child$0(Scope.java:214)
-	at liquibase.Scope.child(Scope.java:223)
-	at liquibase.Scope.child(Scope.java:213)
-	at liquibase.Scope.child(Scope.java:192)
-	at liquibase.command.core.AbstractUpdateCommandStep.run(AbstractUpdateCommandStep.java:115)
-	at liquibase.command.core.UpdateCommandStep.run(UpdateCommandStep.java:100)
-	at liquibase.command.CommandScope.lambda$execute$6(CommandScope.java:263)
-	at liquibase.Scope.child(Scope.java:223)
-	at liquibase.Scope.child(Scope.java:199)
-	at liquibase.command.CommandScope.execute(CommandScope.java:251)
-	at liquibase.Liquibase.lambda$update$0(Liquibase.java:216)
-	at liquibase.Scope.lambda$child$0(Scope.java:214)
-	at liquibase.Scope.child(Scope.java:223)
-	at liquibase.Scope.child(Scope.java:213)
-	at liquibase.Scope.child(Scope.java:192)
-	at liquibase.Liquibase.runInScope(Liquibase.java:1366)
-	at liquibase.Liquibase.update(Liquibase.java:205)
-	at liquibase.Liquibase.update(Liquibase.java:188)
-	at liquibase.Liquibase.update(Liquibase.java:175)
-	at liquibase.Liquibase.update(Liquibase.java:155)
-	at br.com.dio.persistence.migration.MigrationStrategy.executeMigration(MigrationStrategy.java:39)
-	at br.com.dio.Main.main(Main.java:13)
-Caused by: org.postgresql.util.PSQLException: ERRO: erro de sintaxe em ou próximo a ","
-  Posição: 275
-	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2846)
-	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2531)
-	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)
-	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)
-	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)
-	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:358)
-	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:343)
-	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:319)
-	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:314)
-	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:512)
-	... 43 more
-
 
 UPDATE SUMMARY
 Run:                          0
-Previously run:               1
+Previously run:               4
 Filtered out:                 0
 -------------------------------
 Total change sets:            4
 
-fev. 18, 2026 10:45:46 PM liquibase.util
+fev. 20, 2026 12:42:20 AM liquibase.util
 INFORMAÇÕES: UPDATE SUMMARY
-fev. 18, 2026 10:45:46 PM liquibase.util
+fev. 20, 2026 12:42:20 AM liquibase.util
 INFORMAÇÕES: Run:                          0
-fev. 18, 2026 10:45:46 PM liquibase.util
-INFORMAÇÕES: Previously run:               1
-fev. 18, 2026 10:45:46 PM liquibase.util
+fev. 20, 2026 12:42:20 AM liquibase.util
+INFORMAÇÕES: Previously run:               4
+fev. 20, 2026 12:42:20 AM liquibase.util
 INFORMAÇÕES: Filtered out:                 0
-fev. 18, 2026 10:45:46 PM liquibase.util
+fev. 20, 2026 12:42:20 AM liquibase.util
 INFORMAÇÕES: -------------------------------
-fev. 18, 2026 10:45:46 PM liquibase.util
+fev. 20, 2026 12:42:20 AM liquibase.util
 INFORMAÇÕES: Total change sets:            4
-fev. 18, 2026 10:45:46 PM liquibase.util
+fev. 20, 2026 12:42:20 AM liquibase.util
 INFORMAÇÕES: Update summary generated
-fev. 18, 2026 10:45:46 PM liquibase.command
-INFORMAÇÕES: Update command encountered an exception.
-fev. 18, 2026 10:45:46 PM liquibase.lockservice
-INFORMAÇÕES: Successfully released change log lock
-fev. 18, 2026 10:45:46 PM liquibase.command
-INFORMAÇÕES: Logging exception.
-ERROR: Exception Details
-ERROR: Exception Primary Class:  PSQLException
-ERROR: Exception Primary Reason:  ERRO: erro de sintaxe em ou próximo a ","
-  Posição: 275
-ERROR: Exception Primary Source:  PostgreSQL 16.11
-fev. 18, 2026 10:45:46 PM liquibase.command
+fev. 20, 2026 12:42:20 AM liquibase.command
 INFORMAÇÕES: Command execution complete
-liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/migratiens/db.changelog-202602180013.sql::202602172154::daniel:
-     Reason: liquibase.exception.DatabaseException: ERRO: erro de sintaxe em ou próximo a ","
-  Posição: 275 [Failed SQL: (0) CREATE TABLE BOARDS_COLUMNS(
-    id BIGSERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    "order" int NOT NULL,
-    kind VARCHAR(7) NOT NULL,
-    boards_id BIGINT NOT NULL,
-    CONSTRAINT boards__boards_columns_fk FOREIGN KEY (boards_id) REFERENCES BOARDS(id) ON DELETE,
-    CONSTRAINT id_order_uk UNIQUE KEY unique_board_id_order (boards_id, "order")
-)]
-	at liquibase.command.CommandScope.lambda$execute$6(CommandScope.java:310)
-	at liquibase.Scope.child(Scope.java:223)
-	at liquibase.Scope.child(Scope.java:199)
-	at liquibase.command.CommandScope.execute(CommandScope.java:251)
-	at liquibase.Liquibase.lambda$update$0(Liquibase.java:216)
-	at liquibase.Scope.lambda$child$0(Scope.java:214)
-	at liquibase.Scope.child(Scope.java:223)
-	at liquibase.Scope.child(Scope.java:213)
-	at liquibase.Scope.child(Scope.java:192)
-	at liquibase.Liquibase.runInScope(Liquibase.java:1366)
-	at liquibase.Liquibase.update(Liquibase.java:205)
-	at liquibase.Liquibase.update(Liquibase.java:188)
-	at liquibase.Liquibase.update(Liquibase.java:175)
-	at liquibase.Liquibase.update(Liquibase.java:155)
-	at br.com.dio.persistence.migration.MigrationStrategy.executeMigration(MigrationStrategy.java:39)
-	at br.com.dio.Main.main(Main.java:13)
-Caused by: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/migratiens/db.changelog-202602180013.sql::202602172154::daniel:
-     Reason: liquibase.exception.DatabaseException: ERRO: erro de sintaxe em ou próximo a ","
-  Posição: 275 [Failed SQL: (0) CREATE TABLE BOARDS_COLUMNS(
-    id BIGSERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    "order" int NOT NULL,
-    kind VARCHAR(7) NOT NULL,
-    boards_id BIGINT NOT NULL,
-    CONSTRAINT boards__boards_columns_fk FOREIGN KEY (boards_id) REFERENCES BOARDS(id) ON DELETE,
-    CONSTRAINT id_order_uk UNIQUE KEY unique_board_id_order (boards_id, "order")
-)]
-	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:155)
-	at liquibase.command.core.AbstractUpdateCommandStep.lambda$run$1(AbstractUpdateCommandStep.java:117)
-	at liquibase.Scope.lambda$child$0(Scope.java:214)
-	at liquibase.Scope.child(Scope.java:223)
-	at liquibase.Scope.child(Scope.java:213)
-	at liquibase.Scope.child(Scope.java:192)
-	at liquibase.command.core.AbstractUpdateCommandStep.run(AbstractUpdateCommandStep.java:115)
-	at liquibase.command.core.UpdateCommandStep.run(UpdateCommandStep.java:100)
-	at liquibase.command.CommandScope.lambda$execute$6(CommandScope.java:263)
-	... 15 more
-Caused by: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/migratiens/db.changelog-202602180013.sql::202602172154::daniel:
-     Reason: liquibase.exception.DatabaseException: ERRO: erro de sintaxe em ou próximo a ","
-  Posição: 275 [Failed SQL: (0) CREATE TABLE BOARDS_COLUMNS(
-    id BIGSERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    "order" int NOT NULL,
-    kind VARCHAR(7) NOT NULL,
-    boards_id BIGINT NOT NULL,
-    CONSTRAINT boards__boards_columns_fk FOREIGN KEY (boards_id) REFERENCES BOARDS(id) ON DELETE,
-    CONSTRAINT id_order_uk UNIQUE KEY unique_board_id_order (boards_id, "order")
-)]
-	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:918)
-	at liquibase.changelog.visitor.UpdateVisitor.executeAcceptedChange(UpdateVisitor.java:127)
-	at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:71)
-	at liquibase.changelog.ChangeLogIterator.lambda$run$0(ChangeLogIterator.java:133)
-	at liquibase.Scope.lambda$child$0(Scope.java:214)
-	at liquibase.Scope.child(Scope.java:223)
-	at liquibase.Scope.child(Scope.java:213)
-	at liquibase.Scope.child(Scope.java:192)
-	at liquibase.changelog.ChangeLogIterator.lambda$run$1(ChangeLogIterator.java:122)
-	at liquibase.Scope.lambda$child$0(Scope.java:214)
-	at liquibase.Scope.child(Scope.java:223)
-	at liquibase.Scope.child(Scope.java:213)
-	at liquibase.Scope.child(Scope.java:192)
-	at liquibase.Scope.child(Scope.java:280)
-	at liquibase.Scope.child(Scope.java:284)
-	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:91)
-	... 23 more
-Caused by: liquibase.exception.DatabaseException: ERRO: erro de sintaxe em ou próximo a ","
-  Posição: 275 [Failed SQL: (0) CREATE TABLE BOARDS_COLUMNS(
-    id BIGSERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    "order" int NOT NULL,
-    kind VARCHAR(7) NOT NULL,
-    boards_id BIGINT NOT NULL,
-    CONSTRAINT boards__boards_columns_fk FOREIGN KEY (boards_id) REFERENCES BOARDS(id) ON DELETE,
-    CONSTRAINT id_order_uk UNIQUE KEY unique_board_id_order (boards_id, "order")
-)]
-	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:520)
-	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:85)
-	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:188)
-	at liquibase.executor.AbstractExecutor.execute(AbstractExecutor.java:148)
-	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1198)
-	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:860)
-	... 38 more
-Caused by: org.postgresql.util.PSQLException: ERRO: erro de sintaxe em ou próximo a ","
-  Posição: 275
-	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2846)
-	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2531)
-	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)
-	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)
-	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)
-	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:358)
-	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:343)
-	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:319)
-	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:314)
-	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:512)
-	... 43 more
