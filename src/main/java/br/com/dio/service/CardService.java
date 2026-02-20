@@ -56,4 +56,16 @@ public class CardService {
             throw e;
         }
     }
+
+    public void updateTitle(Long cardId, String newTitle) throws SQLException {
+        try {
+            var dao = new CardDAO(connection);
+            dao.updateTitle(cardId, newTitle);
+            connection.commit();
+        } catch (SQLException e) {
+            connection.rollback();
+            throw e;
+        }
+    }
+
 }

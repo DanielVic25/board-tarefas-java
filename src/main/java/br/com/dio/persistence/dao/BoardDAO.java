@@ -1,6 +1,7 @@
 package br.com.dio.persistence.dao;
 
 
+import br.com.dio.dto.BoardDetailsDTO;
 import br.com.dio.persistence.entity.BoardEntity;
 import lombok.AllArgsConstructor;
 
@@ -61,5 +62,17 @@ public class BoardDAO {
             statement.executeQuery();
             return statement.getResultSet().next();
         }
+    }
+
+    public Optional<BoardDetailsDTO> findBoardDetailsById(final Long id) throws SQLException {
+        var sql = """
+            SELECT b.id AS board_id, b.name AS board_name, 
+                   bc.id AS column_id, bc.name AS column_name, bc.kind 
+            FROM BOARDS b
+            LEFT JOIN BOARDS_COLUMNS bc ON b.id = bc.boards_id
+            WHERE b.id = ?
+            ORDER BY bc."order"
+            """;
+        return Optional.empty();
     }
 }

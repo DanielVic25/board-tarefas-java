@@ -1,17 +1,17 @@
-fev. 20, 2026 12:42:19 AM liquibase.database
+fev. 20, 2026 1:21:45 AM liquibase.database
 INFORMAÇÕES: Set default schema name to public
-fev. 20, 2026 12:42:20 AM liquibase.changelog
+fev. 20, 2026 1:21:46 AM liquibase.changelog
 INFORMAÇÕES: Reading resource: db/changelog/migratiens/db.changelog-202602170152.sql
-fev. 20, 2026 12:42:20 AM liquibase.changelog
+fev. 20, 2026 1:21:46 AM liquibase.changelog
 INFORMAÇÕES: Reading from public.databasechangelog
-fev. 20, 2026 12:42:20 AM liquibase.changelog
+fev. 20, 2026 1:21:46 AM liquibase.changelog
 INFORMAÇÕES: Reading resource: db/changelog/migratiens/db.changelog-202602180013.sql
-fev. 20, 2026 12:42:20 AM liquibase.changelog
+fev. 20, 2026 1:21:46 AM liquibase.changelog
 INFORMAÇÕES: Reading resource: db/changelog/migratiens/db.changelog-202602180014.sql
-fev. 20, 2026 12:42:20 AM liquibase.changelog
+fev. 20, 2026 1:21:46 AM liquibase.changelog
 INFORMAÇÕES: Reading resource: db/changelog/migratiens/db.changelog-202602180015.sql
 Database is up to date, no changesets to execute
-fev. 20, 2026 12:42:20 AM liquibase.changelog
+fev. 20, 2026 1:21:46 AM liquibase.changelog
 INFORMAÇÕES: Reading from public.databasechangelog
 
 UPDATE SUMMARY
@@ -21,19 +21,19 @@ Filtered out:                 0
 -------------------------------
 Total change sets:            4
 
-fev. 20, 2026 12:42:20 AM liquibase.util
+fev. 20, 2026 1:21:46 AM liquibase.util
 INFORMAÇÕES: UPDATE SUMMARY
-fev. 20, 2026 12:42:20 AM liquibase.util
+fev. 20, 2026 1:21:46 AM liquibase.util
 INFORMAÇÕES: Run:                          0
-fev. 20, 2026 12:42:20 AM liquibase.util
+fev. 20, 2026 1:21:46 AM liquibase.util
 INFORMAÇÕES: Previously run:               4
-fev. 20, 2026 12:42:20 AM liquibase.util
+fev. 20, 2026 1:21:46 AM liquibase.util
 INFORMAÇÕES: Filtered out:                 0
-fev. 20, 2026 12:42:20 AM liquibase.util
+fev. 20, 2026 1:21:46 AM liquibase.util
 INFORMAÇÕES: -------------------------------
-fev. 20, 2026 12:42:20 AM liquibase.util
+fev. 20, 2026 1:21:46 AM liquibase.util
 INFORMAÇÕES: Total change sets:            4
-fev. 20, 2026 12:42:20 AM liquibase.util
+fev. 20, 2026 1:21:46 AM liquibase.util
 INFORMAÇÕES: Update summary generated
-fev. 20, 2026 12:42:20 AM liquibase.command
+fev. 20, 2026 1:21:46 AM liquibase.command
 INFORMAÇÕES: Command execution complete

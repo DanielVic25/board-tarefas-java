@@ -31,4 +31,14 @@ public class CardDAO {
             statement.executeUpdate();
         }
     }
+
+    public void updateTitle(Long cardId, String newTitle) throws SQLException {
+        var sql = "UPDATE CARDS SET title = ? WHERE id = ?";
+        try (var statement = connection.prepareStatement(sql)) {
+            statement.setString(1, newTitle);
+            statement.setLong(2, cardId);
+            statement.executeUpdate();
+        }
+    }
+
 }
